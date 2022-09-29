@@ -30,7 +30,7 @@ class Grid:
             if self.grid[line][column] == Cell.EMPTY:
                 self.grid[line][column] = cell
                 return line
-        raise ValueError(f"Column {column} is empty.")
+        raise ValueError(f"Column {column} is full.")
 
     def win(self, line: int, column: int) -> bool:
         adjacent = 0
