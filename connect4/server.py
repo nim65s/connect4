@@ -1,8 +1,9 @@
 import socket
 
-from .game import Player
-from .serde import deserialize_grid
 from .console_player import ConsolePlayer
+from .game import Player
+
+# from .serde import deserialize_grid
 
 HOST = "localhost"
 PORT = 50011

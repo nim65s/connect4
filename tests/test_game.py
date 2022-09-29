@@ -1,6 +1,6 @@
 import unittest
 
-from connect4.game import Cell, Grid, Game
+from connect4.game import Cell, Game, Grid
 
 GRID_DUMB_6 = """
 |.......|
@@ -68,7 +68,6 @@ class TestModeles(unittest.TestCase):
             game.play(ai_a, Cell.A)
             game.play(ai_b, Cell.B)
         self.assertTrue(game.grid.tie())
-
 
 
 if __name__ == "__main__":

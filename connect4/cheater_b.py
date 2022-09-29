@@ -1,4 +1,4 @@
-from .game import Cell, Player
+from .game import Player
 
 
 class CheaterB(Player):

@@ -2,7 +2,6 @@ import argparse
 
 from .game import Game, Player
 
-
 PLAYERS = ["DumbIA", "ConsolePlayer", "CheaterB", "ClientPlayer"]
 
 

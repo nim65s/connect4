@@ -1,8 +1,8 @@
-import unittest
 import random
+import unittest
 
 from connect4.game import Cell, Grid
-from connect4.serde import serialize_grid, deserialize_grid
+from connect4.serde import deserialize_grid, serialize_grid
 
 
 class TestSerde(unittest.TestCase):
