@@ -27,8 +27,6 @@ class Grid:
 
     def place(self, column: int, cell: Cell) -> int:
         for line in range(self.lines):
-            print(line, column)
-            print(self.grid)
             if self.grid[line][column] == Cell.EMPTY:
                 self.grid[line][column] = cell
                 return line
