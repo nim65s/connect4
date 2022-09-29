@@ -14,7 +14,7 @@ GRID_DUMB_6 = """
 """
 
 
-class TestModeles(unittest.TestCase):
+class TestGame(unittest.TestCase):
     def test_grid_str(self):
         grid = Grid()
         grid.grid[0] = [Cell.A, Cell.B, Cell.A, Cell.B, Cell.A, Cell.B, Cell.EMPTY]
