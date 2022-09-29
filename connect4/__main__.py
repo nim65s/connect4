@@ -6,23 +6,22 @@ PLAYERS = ["DumbIA", "ConsolePlayer", "CheaterB", "ClientPlayer"]
 
 
 def get_player(player: str) -> Player:
-    match player:
-        case "DumbIA":
-            from .dumb_ia import DumbIA
+    if player == "DumbIA":
+        from .dumb_ia import DumbIA
 
-            return DumbIA()
-        case "ConsolePlayer":
-            from .console_player import ConsolePlayer
+        return DumbIA()
+    if player == "ConsolePlayer":
+        from .console_player import ConsolePlayer
 
-            return ConsolePlayer()
-        case "CheaterB":
-            from .cheater_b import CheaterB
+        return ConsolePlayer()
+    if player == "CheaterB":
+        from .cheater_b import CheaterB
 
-            return CheaterB()
-        case "ClientPlayer":
-            from .client_player import ClientPlayer
+        return CheaterB()
+    if player == "ClientPlayer":
+        from .client_player import ClientPlayer
 
-            return ClientPlayer()
+        return ClientPlayer()
 
 
 parser = argparse.ArgumentParser(description="Start a Connect 4 game.")
