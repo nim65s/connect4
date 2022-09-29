@@ -6,7 +6,7 @@ TP n°1 de Conception Orientée Objet pour le M2 auro.
 
 1. décommenter le décorateur `skip` pour `tests.test_game.TestGame.test_dumb_6` et implémenter
    `connect4.dump_ia.DumbIA.play` jusqu’à ce que `python -m unittest` fonctionne à nouveau
-2. décommenter le décorateur `skip` pour `tests.test_game.TestGame.test_dumb_6` et améliorer
+2. décommenter le décorateur `skip` pour `tests.test_game.TestGame.test_column_win` et améliorer
    `connect4.game.Grid.win` jusqu’à ce que `python -m unittest` fonctionne à nouveau
 3. décommenter le décorateur `skip` pour `tests.test_game.TestGame.test_tie` et implémenter
    `connect4.game.Grid.tie` jusqu’à ce que `python -m unittest` fonctionne à nouveau. `python -m connect4` devrait
