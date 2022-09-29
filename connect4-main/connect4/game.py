@@ -47,17 +47,20 @@ class Grid:
             else:
                 adjacent = 0
 
+
         # TODO: Vertical
-        for compte in self.grid[column]:
-            if compte == color:
-                superieur +=1
-                if superieur == 4:
-                    return True
-                else:
-                    superieur = 0
+        for cell in range(line):
+            for compte in range(column):
+
+                if self.grid[cell][compte] == color:
+                    superieur +=1
+                    if superieur == 4:
+                        return True
+                    else:
+                        superieur = 0
         # TODO: Diagonal
         for cell in self.grid[line]:
-            for colomnes in self.grid[column]:
+            for colomnes in self.grid[cell][column]:
                 if cell == color:
 
                     if (int(cell-1) != color) or (int(cell+1) != color):
