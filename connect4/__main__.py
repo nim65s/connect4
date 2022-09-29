@@ -23,6 +23,8 @@ def get_player(player: str) -> Player:
 
         return ClientPlayer()
 
+    raise ValueError(f"available players are {PLAYERS}")
+
 
 parser = argparse.ArgumentParser(description="Start a Connect 4 game.")
 parser.add_argument("--player-a", choices=PLAYERS, default="DumbIA")

@@ -14,7 +14,7 @@ class Grid:
     def __init__(self):
         self.grid = [[Cell.EMPTY] * self.columns for _ in range(self.lines)]
 
-    def __str__(self):
+    def __str__(self) -> str:
         ret = ""
         for line in range(self.lines - 1, -1, -1):
             ret += "|"
@@ -27,6 +27,8 @@ class Grid:
 
     def place(self, column: int, cell: Cell) -> int:
         for line in range(self.lines):
+            print(line, column)
+            print(self.grid)
             if self.grid[line][column] == Cell.EMPTY:
                 self.grid[line][column] = cell
                 return line
@@ -48,13 +50,13 @@ class Grid:
         # TODO: Diagonal
         return False
 
-    def tie(self):
+    def tie(self) -> bool:
         # TODO
         return False
 
 
 class Player:
-    def play(self, grid):
+    def play(self, grid) -> int:
         raise NotImplementedError
 
 

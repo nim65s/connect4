@@ -9,7 +9,7 @@ PORT = 50011
 
 
 class ClientPlayer(Player):
-    def play(self, grid):
+    def play(self, grid) -> int:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, PORT))
             s.sendall(grid.encode())

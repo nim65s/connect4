@@ -2,5 +2,5 @@ from .game import Player
 
 
 class CheaterB(Player):
-    def play(self, grid):
+    def play(self, grid) -> int:
         ...
