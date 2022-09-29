@@ -1,6 +1,6 @@
-from .game import Player
+from .game import Grid, Player
 
 
 class ConsolePlayer(Player):
-    def play(self, grid) -> int:
+    def play(self, grid: Grid) -> int:
         ...

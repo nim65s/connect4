@@ -54,12 +54,12 @@ class Grid:
 
 
 class Player:
-    def play(self, grid) -> int:
+    def play(self, grid: Grid) -> int:
         raise NotImplementedError
 
 
 class Game:
-    def __init__(self, player_a, player_b):
+    def __init__(self, player_a: Player, player_b: Player):
         self.player_a = player_a
         self.player_b = player_b
         self.grid = Grid()
