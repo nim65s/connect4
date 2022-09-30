@@ -1,7 +1,6 @@
 from enum import Enum
 
 
-
 class Cell(Enum):
     EMPTY = "."
     A = "X"
@@ -47,43 +46,30 @@ class Grid:
             else:
                 adjacent = 0
 
-
         # TODO: Vertical
-        for cell in range(line):
-            for compte in range(column):
+        # for cell in self.grid[line]
+        # for compte in cell[ ]
+        for cell in range(6):
 
-                if self.grid[cell][compte] == color:
-                    superieur +=1
-                    if superieur == 4:
-                        return True
-                    else:
-                        superieur = 0
+            # for compte in self.grid[line][column]:
+            print("cell = ", cell)
+
+            compte = self.grid[cell][column]
+
+            print("compte = ", compte)
+            if compte == color:
+                superieur += 1
+                if superieur == 4:
+                    return True
+                else:
+                    superieur = 0
+            else:
+                return False
         # TODO: Diagonal
-        for cell in self.grid[line]:
-            for colomnes in self.grid[cell][column]:
-                if cell == color:
-
-                    if (int(cell-1) != color) or (int(cell+1) != color):
-                        if (colomnes-1) == color or colomnes+1 == color:
-                            valeur +=1
-                        else:
-                            valeur = 0
-                    if (colomnes - 1) != color or (colomnes + 1) != color:
-                        if (cell - 1) == color or (cell + 1) == color:
-                            valeur += 1
-                        else:
-                            valeur = 0
-
-                    if valeur == 4:
-                        return True
-                    else:
-                         valeur = 0
-
-
-        return False
 
     def tie(self):
         # TODO
+        ##  si on arrive a la limite de col et lin
         return False
 
 
@@ -100,6 +86,7 @@ class Game:
 
     def main(self):
         while True:
+            print("Hello")
             if self.play(self.player_a, Cell.A):
                 print(self.grid)
                 print("A wins !")
@@ -120,4 +107,5 @@ class Game:
     def play(self, player: Player, cell: Cell) -> bool:
         column = player.play(self.grid)
         line = self.grid.place(column, cell)
+        print(self.grid)
         return self.grid.win(line, column)
