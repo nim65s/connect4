@@ -63,14 +63,30 @@ class Grid:
                     return True
                 else:
                     superieur = 0
-            else:
-                return False
-        # TODO: Diagonal
 
-    def tie(self):
-        # TODO
-        ##  si on arrive a la limite de col et lin
+
+        # TODO: Diagonal
+        # pour aller au diagonal il faut commencer d un point et apres faire +1 cell et +column
+        for i in range(6):
+            for j in range(7):
+                compte = self.grid[i][j]
+
+                if i <= 6 and j <= 7:
+                    if compte == color:
+                        superieur += 1
+                        if superieur == 4:
+                            print("Diagonal Win")
+                            return True
+                        else:
+                            superieur = 0
+
         return False
+    #def tie(self):
+        # TODO
+
+
+        ##  si on arrive a la limite de col et lin
+
 
 
 class Player:
