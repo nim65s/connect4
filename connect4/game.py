@@ -1,6 +1,7 @@
 from enum import Enum
 
 
+
 class Cell(Enum):
     EMPTY = "."
     A = "X"
@@ -43,8 +44,20 @@ class Grid:
                     return True
             else:
                 adjacent = 0
+        # Vertical
+        for colonne in range(self.columns): # Tu parcoure les colonnes une par une
+            for line in range(self.lines): # et pour chaque colonne tu parcoure les lignes une par une
+                if self.grid[line][colonne] == color: # et on verifie si on a un enchainement de 4 cases de la meme couleur
+                    adjacent += 1
+                    if adjacent == 4:
+                        return True
+                else:
+                    adjacent = 0
 
-        # TODO: Vertical
+
+
+
+
         # TODO: Diagonal
         return False
 
