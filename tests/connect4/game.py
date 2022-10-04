@@ -43,27 +43,28 @@ class Grid:
         for cell in self.grid[line]:
             if cell == color:
                 eva00  += 1
+                
                 if eva00  == 4:
                     return True
             else:
                 eva00  = 0
         
-        #TODO: Vertical
         
+        #TODO: Vertical
         for cell in self.grid[abs(column-1)]:
-            if cell == color:
-                eva01 += 1
-                if eva01 == 4:
-                    return True
-            else:
-                eva01 = 0
-                
+                if cell == color:
+                    eva01 += 1
+                    
+                    if eva01 == 4:
+                        return True
+                else:
+                    eva01 = 0
         #TODO: Diagonal
         eva02 = 0
         for cell in self.grid[line]:
-            for cell in self.grid[abs(column-1)]:
+            for cell2 in self.grid[abs(column-1)]:
                 i = 0
-                if cell == color:
+                if cell2 == color:
                     eva02 += 1
                     while(i<4):
                         if (self.grid[line-1][column-1] == color):
@@ -98,6 +99,7 @@ class Grid:
                         i += 1
                 else:
                     eva03 = 0    
+                 
         return False
 
     def tie(self,line:int,column:int):
