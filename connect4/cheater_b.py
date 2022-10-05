@@ -1,6 +1,8 @@
-from .game import Player
+from .game import Grid, Player
 
 
 class CheaterB(Player):
-    def play(self, grid) -> int:
+    """This IA cheats and modify the grid to ensure player B wins."""
+
+    def play(self, grid: Grid) -> int:
         ...

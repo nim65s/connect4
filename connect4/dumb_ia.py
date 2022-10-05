@@ -2,7 +2,6 @@ from .game import Player
 from .game import Cell
 
 
-
 class DumbIA(Player):
     def play(self, grid) -> int:
         for line in range(grid.lines):# on parcoure les lignes de la grille
@@ -10,4 +9,6 @@ class DumbIA(Player):
                 if grid.grid[line][colonne] == Cell.EMPTY:#on teste si la case qui correspond à la ligne et la colonne est vide
                     print("Cette case est vide, je vais jouer ici :)")#on dit que c'est bon
                     return colonne#on retourne la premiere colonne dans laquelle on peut mettre un jeton
+
+
 

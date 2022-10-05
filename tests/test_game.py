@@ -48,7 +48,7 @@ class TestGame(unittest.TestCase):
         self.assertFalse(grid.win(0, 1))
         print("le test a fonctionné :)")
 
-    @unittest.skip
+    #@unittest.skip
     def test_diag_win(self):
         grid = Grid()
         for lig_col in range(4):
