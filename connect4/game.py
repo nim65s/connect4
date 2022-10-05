@@ -53,13 +53,33 @@ class Grid:
                         return True
                 else:
                     adjacent = 0
+        # diagonal
+        for colonne in range(self.columns[0],self.columns[3], 1): # Tu parcoure les colonnes une par une
+            for line in range(self.lines[0],self.lines[3], 1): # et pour chaque colonne tu parcoure les lignes une par une
+                if (self.grid[line][colonne] and self.grid[line+1][colonne+1] \
+                        and self.grid[line+2][colonne+2] \
+                        and self.grid[line+3][colonne+3]) == color: # en allant du bas à gauche à haut à droite de (1,1) à (6,7)
+                    adjacent += 1
+                    if adjacent == 4:
+                        return True
+                else:
+                    adjacent = 0
 
-
+        for colonne in range(self.columns[0],self.columns[6], -1):  # Tu parcoure les colonnes une par une
+            for line in range(self.lines[0],self.lines[3]):  # et pour chaque colonne tu parcoure les lignes une par une
+                if (self.grid[line][colonne] and self.grid[line + 1][colonne - 1] \
+                     and self.grid[line + 2][colonne - 2] \
+                     and self.grid[line + 3][colonne - 3]) == color:
+                    adjacent += 1
+                    if adjacent == 4:
+                        return True
+                else:
+                    adjacent = 0
 
 
 
         # TODO: Diagonal
-        return False
+        #return False
 
     def tie(self) -> bool:
         # TODO
