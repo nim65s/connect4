@@ -39,88 +39,102 @@ class Grid:
         eva01 = 0
         eva02 = 0
         color = self.grid[line][column]
-        i=0
-        
-        
+        i = 0
+
         # Horizontal
         for cell in self.grid[line]:
             if cell == color:
-                eva00  += 1
-                if eva00  == 4:
+                eva00 += 1
+                if eva00 == 4:
                     return True
             else:
-                eva00  = 0
-        
-        
-        #TODO: Vertical
+                eva00 = 0
+
+        # TODO: Vertical
         for cell in range(6):
-                sachiel=self.grid[cell][column]
-                if sachiel == color:
-                    eva01 += 1
-                    if eva01 == 4:
-                        return True
-                else:
-                    eva01 = 0
+            sachiel = self.grid[cell][column]
+            if sachiel == color:
+                eva01 += 1
+                if eva01 == 4:
+                    return True
+            else:
+                eva01 = 0
         eva02 = 0
 
-        #TODO: Diagonal
-        
+        # TODO: Diagonal
+
         print(color)
         for cell in range(6):
             for cell2 in range(7):
-                shamshel=self.grid[cell][cell2]
-                
+                shamshel = self.grid[cell][cell2]
+
                 if shamshel == color:
                     eva02 += 1
-                    while(i<4):
-                        
-                        if ((cell2-1) < 0 and (cell-1) < 0 and self.grid[cell-1][cell2-1] == color):
-                            eva02 += 1  
-                            
+                    while i < 4:
+
+                        if (
+                            (cell2 - 1) < 0
+                            and (cell - 1) < 0
+                            and self.grid[cell - 1][cell2 - 1] == color
+                        ):
+                            eva02 += 1
+
                         else:
                             eva02 = 0
                             break
                         i += 1
-                    i=0
-                    if eva02  == 4:
-                                return True
-                    while(i<4):
-                        if ((cell2+1) < 7 and (cell+1) < 6 and self.grid[cell+1][cell2+1] == color):
-                            eva02 += 1  
-                        else:
-                            eva02 = 0
-                            break
-                        i += 1
-                    i=0
-                    if eva02  == 4:
+                    i = 0
+                    if eva02 == 4:
                         return True
-                    while(i<4):
-                        if ((cell2+1) < 7 and (cell-1) < 0 and self.grid[cell-1][cell2+1] == color):
-                            eva02 += 1  
-                        else:
-                            eva02 = 0
-                            break
-                        i += 1
-                    i=0
-                    if eva02  == 4:
-                        return True
-                    while(i<4):
-                        if ((cell+1) < 6 and (cell-1) < 1 and self.grid[cell+1][cell2-1] == color):
+                    while i < 4:
+                        if (
+                            (cell2 + 1) < 7
+                            and (cell + 1) < 6
+                            and self.grid[cell + 1][cell2 + 1] == color
+                        ):
                             eva02 += 1
                         else:
                             eva02 = 0
                             break
                         i += 1
-                    if eva02  == 4:
+                    i = 0
+                    if eva02 == 4:
+                        return True
+                    while i < 4:
+                        if (
+                            (cell2 + 1) < 7
+                            and (cell - 1) < 0
+                            and self.grid[cell - 1][cell2 + 1] == color
+                        ):
+                            eva02 += 1
+                        else:
+                            eva02 = 0
+                            break
+                        i += 1
+                    i = 0
+                    if eva02 == 4:
+                        return True
+                    while i < 4:
+                        if (
+                            (cell + 1) < 6
+                            and (cell - 1) < 1
+                            and self.grid[cell + 1][cell2 - 1] == color
+                        ):
+                            eva02 += 1
+                        else:
+                            eva02 = 0
+                            break
+                        i += 1
+                    if eva02 == 4:
                         return True
                 else:
-                    eva02 = 0   
-                      
+                    eva02 = 0
+
         return False
 
-    def tie(self,line:int,column:int):
-        #TODO
-            
+    def tie(self, line: int, column: int):
+        # TODO
+
         return False
 
 
