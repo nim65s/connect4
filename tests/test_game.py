@@ -32,14 +32,14 @@ class TestGame(unittest.TestCase):
             game.play(ai_b, Cell.B)
         self.assertEqual("\n" + str(game.grid), GRID_DUMB_6)
 
-    @unittest.skip
+    #@unittest.skip
     def test_line_win(self):
         grid = Grid()
         grid.grid[0] = [Cell.A, Cell.A, Cell.A, Cell.A, Cell.B, Cell.B, Cell.B]
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 5))
 
-    @unittest.skip
+    #@unittest.skip
     def test_column_win(self):
         grid = Grid()
         for line in range(4):
@@ -48,7 +48,7 @@ class TestGame(unittest.TestCase):
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 1))
 
-    @unittest.skip
+    #@unittest.skip
     def test_diag_win(self):
         grid = Grid()
         for lig_col in range(4):
