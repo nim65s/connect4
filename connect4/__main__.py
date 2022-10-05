@@ -35,3 +35,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     game = Game(get_player(args.player_a), get_player(args.player_b))
     game.main()
+

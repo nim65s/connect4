@@ -37,6 +37,7 @@ class TestGame(unittest.TestCase):
         grid.grid[0] = [Cell.A, Cell.A, Cell.A, Cell.A, Cell.B, Cell.B, Cell.B]
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 6))
+        print("le test horizontal a fonctionné :)")
 
     #@unittest.skip
     def test_column_win(self):
@@ -46,7 +47,7 @@ class TestGame(unittest.TestCase):
             grid.grid[line][1] = Cell.B if line == 0 else Cell.A
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 1))
-        print("le test a fonctionné :)")
+        print("le test vertical a fonctionné :)")
 
     #@unittest.skip
     def test_diag_win(self):
@@ -56,8 +57,9 @@ class TestGame(unittest.TestCase):
             grid.grid[lig_col][lig_col + 1] = Cell.B if lig_col == 0 else Cell.A
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 1))
+        print("le test diagonal a fonctionné :)")
 
-    @unittest.skip
+    #@unittest.skip
     def test_tie(self):
         from connect4.dumb_ia import DumbIA
 

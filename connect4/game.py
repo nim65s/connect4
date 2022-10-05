@@ -36,12 +36,15 @@ class Grid:
         """Put one Cell into one of the 7 columns of this grid. Return the line where
         the token stops."""
         for line in range(self.lines):
+            print("colonne :", column)
             if self.grid[line][column] == Cell.EMPTY:
+
                 self.grid[line][column] = cell
                 return line
         raise ValueError(f"Column {column} is full.")
 
     def win(self, line: int, column: int) -> bool:
+
         """Check if the Cell at "line" / "column" is part of 4 Cells from the same
         player in a horizontal / vertical / diagonal line."""
         adjacent = 0
@@ -64,37 +67,40 @@ class Grid:
                 else:
                     adjacent = 0
         # diagonal
-        for colonne in range(self.columns[0],self.columns[3], 1): # Tu parcoure les colonnes une par une
-            for line in range(self.lines[0],self.lines[3], 1): # et pour chaque colonne tu parcoure les lignes une par une
-                if (self.grid[line][colonne] and self.grid[line+1][colonne+1] \
-                        and self.grid[line+2][colonne+2] \
-                        and self.grid[line+3][colonne+3]) == color: # en allant du bas à gauche à haut à droite de (1,1) à (6,7)
-                    adjacent += 1
-                    if adjacent == 4:
+        for colonne in range(0, 4, 1): # Tu parcoure les colonnes une par une
+            for line in range(0, 3, 1): # et pour chaque colonne tu parcoure les lignes une par une
+                if (self.grid[line][colonne]== color) and (self.grid[line+1][colonne+1]== color) \
+                        and (self.grid[line+2][colonne+2]==color) \
+                        and (self.grid[line+3][colonne+3]) == color: # en allant du bas à gauche à haut à droite de (1,1) à (6,7)
                         return True
-                else:
-                    adjacent = 0
 
-        for colonne in range(self.columns[0],self.columns[6], -1):  # Tu parcoure les colonnes une par une
-            for line in range(self.lines[0],self.lines[3]):  # et pour chaque colonne tu parcoure les lignes une par une
-                if (self.grid[line][colonne] and self.grid[line + 1][colonne - 1] \
-                     and self.grid[line + 2][colonne - 2] \
-                     and self.grid[line + 3][colonne - 3]) == color:
-                    adjacent += 1
-                    if adjacent == 4:
-                        return True
-                else:
-                    adjacent = 0
+        for colonne in range(6, 2, -1):  # Tu parcoure les colonnes une par une
+            for line in range(0, 3, 1):  # et pour chaque colonne tu parcoure les lignes une par une
+                if (self.grid[line][colonne]==color) and (self.grid[line + 1][colonne - 1]==color) \
+                     and (self.grid[line + 2][colonne - 2]==color) \
+                     and (self.grid[line + 3][colonne - 3] == color):
+                    return True
 
+
+        return False
 
 
         # TODO: Diagonal
-        #return False
+
 
     def tie(self) -> bool:
         """Check if the grid is full."""
         # TODO
-        return False
+        for line in range(0,5,1):
+            for colonne in range(0,6,1):
+                if self.grid[line][colonne] != Cell.EMPTY:
+                    print(f"la case :[{line}][{colonne}]= {self.grid[line][colonne]} :)")
+                    print("La grille n'est pas encore pleine :) jouez encore")
+
+                    return False
+                elif (self.grid[line][colonne] == Cell.A) or (self.grid[line][colonne] == Cell.A):
+                    print("La grille est  pleine :( ")
+                    return True
 
 
 class Player:
