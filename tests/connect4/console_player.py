@@ -1,4 +1,4 @@
-from .game import Grid, Player, Cell
+from .game import Cell, Grid, Player
 
 
 class ConsolePlayer(Player):
