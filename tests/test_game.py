@@ -50,7 +50,7 @@ class TestGame(unittest.TestCase):
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 5))
 
-    #@unittest.skip
+    # @unittest.skip
     def test_column_win(self):
         grid = Grid()
         for line in range(4):
@@ -59,7 +59,7 @@ class TestGame(unittest.TestCase):
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 1))
 
-    #@unittest.skip
+    # @unittest.skip
     def test_diag_win(self):
         grid = Grid()
         for lig_col in range(4):
@@ -68,7 +68,7 @@ class TestGame(unittest.TestCase):
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 1))
 
-    #@unittest.skip
+    # @unittest.skip
     def test_tie(self):
         from connect4.dumb_ia import DumbIA
 

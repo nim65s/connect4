@@ -1,4 +1,4 @@
-from .game import Grid, Player, Cell
+from .game import Cell, Grid, Player
 
 
 class DumbIA(Player):
@@ -11,4 +11,4 @@ class DumbIA(Player):
                 if(gaghiel == Cell.EMPTY):
                     return cell2
 
-        return 
+        return
