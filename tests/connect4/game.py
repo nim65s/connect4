@@ -50,6 +50,7 @@ class Grid:
             if cell == color:
                 adjacent += 1
                 if adjacent == 4:
+                    
                     return True
             else:
                 adjacent = 0
@@ -91,43 +92,48 @@ class Grid:
                         
                         if ((cell2-1) < 0 and (cell-1) < 0 and self.grid[cell-1][cell2-1] == color):
                             eva02 += 1  
-                            
+                            if eva02  == 4:
+                                return True
                         else:
                             eva02 = 0
                             break
                         i += 1
                     i=0
-                    if eva02  == 4:
-                                return True
+                    
                     while(i<4):
                         if ((cell2+1) < 7 and (cell+1) < 6 and self.grid[cell+1][cell2+1] == color):
-                            eva02 += 1  
+                            print(color)
+                            eva02 += 1 
+                            if eva02  == 4:
+                                
+                                return True 
                         else:
                             eva02 = 0
                             break
                         i += 1
                     i=0
-                    if eva02  == 4:
-                        return True
+                    
                     while(i<4):
                         if ((cell2+1) < 7 and (cell-1) < 0 and self.grid[cell-1][cell2+1] == color):
                             eva02 += 1  
+                            if eva02  == 4:
+                                return True
                         else:
                             eva02 = 0
                             break
                         i += 1
                     i=0
-                    if eva02  == 4:
-                        return True
+                    
                     while(i<4):
                         if ((cell+1) < 6 and (cell-1) < 1 and self.grid[cell+1][cell2-1] == color):
                             eva02 += 1
+                            if eva02  == 4:
+                                return True
                         else:
                             eva02 = 0
                             break
                         i += 1
-                    if eva02  == 4:
-                        return True
+                    
                 else:
                     eva02 = 0   
         return False
@@ -135,7 +141,11 @@ class Grid:
     def tie(self) -> bool:
         """Check if the grid is full."""
         # TODO
-        return False
+        for cell in range(6):
+            for cell2 in range(7):
+                if (self.win(cell,cell2) == True):
+                    return False  
+        return True
 
 
 class Player:

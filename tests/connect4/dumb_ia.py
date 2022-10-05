@@ -9,6 +9,7 @@ class DumbIA(Player):
             for cell2 in range(grid.columns):
                 gaghiel = grid.grid[cell][cell2]
                 if(gaghiel == Cell.EMPTY):
+                    print(grid)
                     return cell2
 
         return 
