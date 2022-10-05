@@ -8,7 +8,7 @@ class DumbIA(Player):
         for cell in range(grid.lines):
             for cell2 in range(grid.columns):
                 gaghiel = grid.grid[cell][cell2]
-                if(gaghiel == Cell.EMPTY):
+                if gaghiel == Cell.EMPTY:
                     return cell2
 
         return
