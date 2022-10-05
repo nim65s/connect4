@@ -9,6 +9,8 @@ PORT = 50011
 
 
 class ClientPlayer(Player):
+    """Let a human play accross the network."""
+
     def play(self, grid: Grid) -> int:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, PORT))
