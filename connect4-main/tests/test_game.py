@@ -1,6 +1,6 @@
-import unittest
-import sys
 import os.path
+import sys
+import unittest
 
 # sys.path.append('C:/Users/Madtec/Downloads/connect4-main/connect4-main')
 # sys.path.append('../connect4')
@@ -38,31 +38,31 @@ class TestModeles(unittest.TestCase):
             game.play(ai_b, Cell.B)
         self.assertEqual("\n" + str(game.grid), GRID_DUMB_6)
 
-    #@unittest.skip
+    # @unittest.skip
     def test_line_win(self):
         grid = Grid()
         grid.grid[0] = [Cell.A, Cell.A, Cell.A, Cell.A, Cell.B, Cell.B, Cell.B]
         self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 6))
 
-    #unittest.skip
+    # unittest.skip
     def test_column_win(self):
         grid = Grid()
         for line in range(4):
             grid.grid[line][0] = Cell.A
             grid.grid[line][1] = Cell.B if line == 0 else Cell.A
-        #self.assertTrue(grid.win(0, 0))
+        # self.assertTrue(grid.win(0, 0))
         # self.assertTrue(grid.win(1, 0))
         self.assertFalse(grid.win(0, 1))
         print(grid)
 
-    #@unittest.skip
+    # @unittest.skip
     def test_diag_win(self):
         grid = Grid()
         for lig_col in range(4):
             grid.grid[lig_col][lig_col] = Cell.A
             grid.grid[lig_col][lig_col + 1] = Cell.B if lig_col == 0 else Cell.A
-        #self.assertTrue(grid.win(0, 0))
+        # self.assertTrue(grid.win(0, 0))
         self.assertFalse(grid.win(0, 1))
         print(grid)
 

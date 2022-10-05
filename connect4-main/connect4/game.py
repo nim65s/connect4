@@ -64,7 +64,6 @@ class Grid:
                 else:
                     superieur = 0
 
-
         # TODO: Diagonal
         # pour aller au diagonal il faut commencer d un point et apres faire +1 cell et +column
         for i in range(6):
@@ -81,12 +80,11 @@ class Grid:
                             superieur = 0
 
         return False
-    #def tie(self):
-        # TODO
 
+    # def tie(self):
+    # TODO
 
-        ##  si on arrive a la limite de col et lin
-
+    ##  si on arrive a la limite de col et lin
 
 
 class Player:
