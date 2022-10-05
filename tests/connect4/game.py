@@ -1,4 +1,5 @@
 from enum import Enum
+from msilib.schema import SelfReg
 
 
 class Cell(Enum):
@@ -63,8 +64,8 @@ class Grid:
         # Horizontal
         for cell in self.grid[line]:
             if cell == color:
-                eva00  += 1
-                if eva00  == 4:
+                eva00 += 1
+                if eva00 == 4:
                     return True
             else:
                 eva00  = 0
@@ -84,8 +85,8 @@ class Grid:
         
         for cell in range(6):
             for cell2 in range(7):
-                shamshel=self.grid[cell][cell2]
-                
+                shamshel = self.grid[cell][cell2]
+
                 if shamshel == color:
                     eva02 += 1
                     while(i<4):

@@ -13,4 +13,3 @@ class DumbIA(Player):
                     return cell2
 
         return 
-        ...
