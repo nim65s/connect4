@@ -1,5 +1,6 @@
 from enum import Enum
 from msilib.schema import SelfReg
+from tkinter.tix import CELL
 
 
 class Cell(Enum):
@@ -89,52 +90,58 @@ class Grid:
 
                 if shamshel == color:
                     eva02 += 1
+                    katsuragi = cell
+                    ryoji = cell2
                     while(i<4):
-                        
-                        if ((cell2-1) < 0 and (cell-1) < 0 and self.grid[cell-1][cell2-1] == color):
+                        if ((ryoji-1) < 0 and (katsuragi-1) < 0 and self.grid[katsuragi-1][ryoji-1] == color):
                             eva02 += 1  
                             if eva02  == 4:
                                 return True
                         else:
                             eva02 = 0
-                            break
+                        katsuragi-=1
+                        ryoji-=1
                         i += 1
                     i=0
                     
+                    katsuragi = cell
+                    ryoji = cell2
                     while(i<4):
-                        if ((cell2+1) < 7 and (cell+1) < 6 and self.grid[cell+1][cell2+1] == color):
-                            print(color)
+                        if ((ryoji+1) < 7 and (katsuragi+1) < 6 and self.grid[katsuragi+1][ryoji+1] == color):
                             eva02 += 1 
                             if eva02  == 4:
-                                
                                 return True 
                         else:
                             eva02 = 0
-                            break
                         i += 1
+                        katsuragi+=1
+                        ryoji+=1
                     i=0
-                    
+                    katsuragi = cell
+                    ryoji = cell2
                     while(i<4):
-                        if ((cell2+1) < 7 and (cell-1) < 0 and self.grid[cell-1][cell2+1] == color):
+                        if ((ryoji+1) < 7 and (katsuragi-1) < 0 and self.grid[katsuragi-1][ryoji+1] == color):
                             eva02 += 1  
                             if eva02  == 4:
                                 return True
                         else:
                             eva02 = 0
-                            break
                         i += 1
+                        katsuragi-=1
+                        ryoji+=1
                     i=0
-                    
+                    katsuragi = cell
+                    ryoji = cell2
                     while(i<4):
-                        if ((cell+1) < 6 and (cell-1) < 1 and self.grid[cell+1][cell2-1] == color):
+                        if ((katsuragi+1) < 6 and (katsuragi-1) < 1 and self.grid[katsuragi+1][ryoji-1] == color):
                             eva02 += 1
                             if eva02  == 4:
                                 return True
                         else:
                             eva02 = 0
-                            break
                         i += 1
-                    
+                        katsuragi+=1
+                        ryoji-=1
                 else:
                     eva02 = 0   
         return False
@@ -142,11 +149,17 @@ class Grid:
     def tie(self) -> bool:
         """Check if the grid is full."""
         # TODO
-        for cell in range(6):
-            for cell2 in range(7):
-                if (self.win(cell,cell2) == True):
-                    return False  
-        return True
+        i=0
+        for cell2 in range(7):
+            Israfel = self.grid[5][cell2]
+            if (Israfel == Cell.A or Israfel == Cell.B):
+                i+=1
+            else:
+                i = 0
+            if (i == 6):
+                return True
+            elif (i == 0):
+                return False
 
 
 class Player:

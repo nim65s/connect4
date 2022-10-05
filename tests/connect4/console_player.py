@@ -6,5 +6,5 @@ class ConsolePlayer(Player):
     keyboard."""
 
     def play(self, grid: Grid) -> int:
-        asuka = int(input("la ligne :"))
+        asuka = int(input("la COLONE:"))
         return asuka
