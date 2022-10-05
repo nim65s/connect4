@@ -1,0 +1,14 @@
+name: Run tests
+
+on: ["push", "pull_request"]
+
+jobs:
+  test:
+    name: Run Unittests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - run: python -m unittest
