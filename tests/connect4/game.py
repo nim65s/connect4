@@ -1,4 +1,6 @@
 from enum import Enum
+from msilib.schema import SelfReg
+from tkinter.tix import CELL
 
 
 class Cell(Enum):
@@ -50,77 +52,85 @@ class Grid:
             if cell == color:
                 adjacent += 1
                 if adjacent == 4:
+
                     return True
             else:
                 adjacent = 0
 
-        eva00 = 0
         eva01 = 0
         eva02 = 0
+        i = 0
         color = self.grid[line][column]
-        # Horizontal
-        for cell in self.grid[line]:
-            if cell == color:
-                eva00 += 1
-                if eva00 == 4:
-                    return True
-            else:
-                eva00 = 0
-
-        # TODO: Vertical
-
-        for cell in self.grid[column]:
-            if cell == color:
+        for cell in range(6):
+            sachiel = self.grid[cell][column]
+            if sachiel == color:
                 eva01 += 1
                 if eva01 == 4:
                     return True
             else:
                 eva01 = 0
-        # TODO: Diagonal
         eva02 = 0
-        for cell in self.grid[line][column]:
-            i = 1
-            if cell == color:
-                eva02 += 1
-                while i < 4:
-                    if self.grid[line + 1][column + 1] == color:
-                        eva02 += 1
-                    else:
-                        eva02 = 0
-                        break
-                    i += 1
-                i = 0
-                while i < 4:
-                    if self.grid[line - 1][column - 1] == color:
-                        eva02 += 1
-                    else:
-                        eva02 = 0
-                        break
-                    i += 1
-                i = 0
-                while i < 4:
-                    if self.grid[line - 1][column + 1] == color:
-                        eva02 += 1
-                    else:
-                        eva02 = 0
-                        break
-                    i += 1
-                i = 0
-                while i < 4:
-                    if self.grid[line + 1][column - 1] == color:
-                        eva03 += 1
-                    else:
-                        eva03 = 0
-                        break
-                    i += 1
-            else:
-                eva03 = 0
+
+        # TODO: Diagonal
+
+        for cell in range(6):
+            for cell2 in range(7):
+                shamshel = self.grid[cell][cell2]
+
+                if shamshel == color:
+                    eva02 = 1
+                    katsuragi = cell
+                    ryoji = cell2
+                    while i < 4:
+                        if (
+                            (ryoji + 1) < 7
+                            and (katsuragi + 1) < 6
+                            and self.grid[katsuragi + 1][ryoji + 1] == color
+                        ):
+                            eva02 += 1
+                            if eva02 == 4:
+                                return True
+                        else:
+                            eva02 = 1
+                        i += 1
+                        katsuragi += 1
+                        ryoji += 1
+                    eva02 = 1
+                    i = 0
+                    katsuragi = cell
+                    ryoji = cell2
+                    while i < 4:
+                        if (
+                            (ryoji - 1) > -1
+                            and (katsuragi + 1) < 6
+                            and self.grid[katsuragi + 1][ryoji - 1] == color
+                        ):
+                            eva02 += 1
+                            if eva02 == 4:
+                                return True
+                        else:
+                            eva02 = 1
+                        i += 1
+                        katsuragi += 1
+                        ryoji -= 1
+                else:
+                    eva02 = 0
         return False
 
     def tie(self) -> bool:
         """Check if the grid is full."""
         # TODO
-        return False
+        i = 0
+        for cell2 in range(7):
+            Israfel = self.grid[5][cell2]
+            if Israfel == Cell.A or Israfel == Cell.B:
+                i += 1
+            else:
+                i = 0
+            if i == 6:
+                return True
+            elif i == 0:
+                return False
 
 
 class Player:
