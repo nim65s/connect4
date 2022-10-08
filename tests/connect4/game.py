@@ -57,7 +57,6 @@ class Grid:
             else:
                 adjacent = 0
 
-
         eva01 = 0
         eva02 = 0
         i = 0
@@ -82,25 +81,33 @@ class Grid:
                     eva02 = 1
                     katsuragi = cell
                     ryoji = cell2
-                    while(i<4):
-                        if ((ryoji+1) < 7 and (katsuragi+1) < 6 and self.grid[katsuragi+1][ryoji+1] == color):
-                            eva02 += 1 
-                            if eva02  == 4:
-                                return True 
+                    while i < 4:
+                        if (
+                            (ryoji + 1) < 7
+                            and (katsuragi + 1) < 6
+                            and self.grid[katsuragi + 1][ryoji + 1] == color
+                        ):
+                            eva02 += 1
+                            if eva02 == 4:
+                                return True
                         else:
                             eva02 = 1
                         i += 1
-                        katsuragi+=1
-                        ryoji+=1
+                        katsuragi += 1
+                        ryoji += 1
                     eva02 = 1
-                    i=0
+                    i = 0
                     katsuragi = cell
                     ryoji = cell2
-                    while(i<4):
-                        if ((ryoji-1) > -1   and (katsuragi+1) < 6 and self.grid[katsuragi+1][ryoji-1] == color):
-                            eva02 += 1 
-                            if eva02  == 4:
-                                return True 
+                    while i < 4:
+                        if (
+                            (ryoji - 1) > -1
+                            and (katsuragi + 1) < 6
+                            and self.grid[katsuragi + 1][ryoji - 1] == color
+                        ):
+                            eva02 += 1
+                            if eva02 == 4:
+                                return True
                         else:
                             eva02 = 1
                         i += 1
