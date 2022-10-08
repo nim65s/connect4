@@ -57,29 +57,20 @@ class Grid:
             else:
                 adjacent = 0
 
-        eva00 = 0
+
         eva01 = 0
         eva02 = 0
         i = 0
         color = self.grid[line][column]
-        # Horizontal
-        for cell in self.grid[line]:
-            if cell == color:
-                eva00 += 1
-                if eva00 == 4:
+        for cell in range(6):
+            sachiel = self.grid[cell][column]
+            if sachiel == color:
+                eva01 += 1
+                if eva01 == 4:
                     return True
             else:
-                eva00 = 0
-            # TODO: Vertical
-            for cell in range(6):
-                sachiel = self.grid[cell][column]
-                if sachiel == color:
-                    eva01 += 1
-                    if eva01 == 4:
-                        return True
-                else:
-                    eva01 = 0
-            eva02 = 0
+                eva01 = 0
+        eva02 = 0
 
         # TODO: Diagonal
 
@@ -88,21 +79,7 @@ class Grid:
                 shamshel = self.grid[cell][cell2]
 
                 if shamshel == color:
-                    eva02 += 1
-                    katsuragi = cell
-                    ryoji = cell2
-                    while(i<4):
-                        if ((ryoji-1) < 0 and (katsuragi-1) < 0 and self.grid[katsuragi-1][ryoji-1] == color):
-                            eva02 += 1  
-                            if eva02  == 4:
-                                return True
-                        else:
-                            eva02 = 0
-                        katsuragi-=1
-                        ryoji-=1
-                        i += 1
-                    i=0
-                    
+                    eva02 = 1
                     katsuragi = cell
                     ryoji = cell2
                     while(i<4):
@@ -111,33 +88,21 @@ class Grid:
                             if eva02  == 4:
                                 return True 
                         else:
-                            eva02 = 0
+                            eva02 = 1
                         i += 1
                         katsuragi+=1
                         ryoji+=1
+                    eva02 = 1
                     i=0
                     katsuragi = cell
                     ryoji = cell2
                     while(i<4):
-                        if ((ryoji+1) < 7 and (katsuragi-1) < 0 and self.grid[katsuragi-1][ryoji+1] == color):
-                            eva02 += 1  
+                        if ((ryoji-1) > -1   and (katsuragi+1) < 6 and self.grid[katsuragi+1][ryoji-1] == color):
+                            eva02 += 1 
                             if eva02  == 4:
-                                return True
+                                return True 
                         else:
-                            eva02 = 0
-                        i += 1
-                        katsuragi-=1
-                        ryoji+=1
-                    i=0
-                    katsuragi = cell
-                    ryoji = cell2
-                    while(i<4):
-                        if ((katsuragi+1) < 6 and (katsuragi-1) < 1 and self.grid[katsuragi+1][ryoji-1] == color):
-                            eva02 += 1
-                            if eva02 == 4:
-                                return True
-                        else:
-                            eva02 = 0
+                            eva02 = 1
                         i += 1
                         katsuragi+=1
                         ryoji-=1

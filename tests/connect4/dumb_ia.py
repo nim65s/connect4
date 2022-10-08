@@ -10,5 +10,3 @@ class DumbIA(Player):
                 gaghiel = grid.grid[cell][cell2]
                 if(gaghiel == Cell.EMPTY):
                     return cell2
-
-        return
